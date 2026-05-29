@@ -70,4 +70,36 @@ if st.session_state.models is not None:
         tax = st.slider("Tax Rate (TAX)", min_value=180, max_value=720, value=400)
         ptratio = st.slider("Pupil-Teacher Ratio (PTRATIO)", min_value=12.0, max_value=23.0, value=16.0)
 
-    # Rest of prediction logic follows here...
+    nox = st.slider("NO2 Concentration (NOX)", min_value=0.3, max_value=1.0, value=0.55)
+    lstat = st.slider("Lower Status % (LSTAT)", min_value=0.0, max_value=40.0, value=10.0)
+    chas = st.selectbox("Near Charles River (CHAS)", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+    b = st.slider("Black Population % (B)", min_value=0.0, max_value=400.0, value=300.0)
+
+    if st.button("🎯 Predict Price"):
+        input_data = np.array([[crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat]])
+        input_scaled = st.session_state.scaler.transform(input_data)
+
+        prediction_results = {}
+        for model_name, model in st.session_state.models.items():
+            pred = model.predict(input_scaled)[0]
+            prediction_results[model_name] = pred
+
+        best_model_name = st.session_state.best_model_name
+        best_prediction = prediction_results[best_model_name]
+        average_prediction = np.mean(list(prediction_results.values()))
+
+        st.markdown("### Prediction Results")
+        st.write(f"**Best model:** {best_model_name}")
+        st.write(f"**Predicted price:** ${best_prediction:,.2f}")
+        st.write(f"**Average prediction across models:** ${average_prediction:,.2f}")
+
+        cols = st.columns(2)
+        with cols[0]:
+            st.subheader("All model predictions")
+            for model_name, pred in prediction_results.items():
+                st.metric(model_name, f"${pred:,.2f}")
+
+        with cols[1]:
+            metrics_df = pd.DataFrame(st.session_state.metrics).T
+            st.subheader("Model performance")
+            st.dataframe(metrics_df[['test_r2', 'test_rmse', 'test_mae']].round(4))
