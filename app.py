@@ -62,30 +62,32 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.header("🏠 Housing Price Prediction")
     
-    # Load and train models
-    if st.sidebar.button("🚀 Train Models", key="train_btn"):
-        with st.spinner("Loading data and training models..."):
-            # Load data
-            df = load_housing_data()
-            X, y, feature_names = preprocess_data(df)
-            X_train, X_test, y_train, y_test, scaler = prepare_train_test_data(X, y)
-            
-            # Train models
-            models = train_models(X_train, y_train)
-            metrics = evaluate_models(models, X_train, X_test, y_train, y_test)
-            
-            # Save to session state
-            st.session_state.models = models
-            st.session_state.scaler = scaler
-            st.session_state.feature_names = feature_names
-            st.session_state.metrics = metrics
-            
-            # Save best model
-            best_model_name = max(metrics, key=lambda x: metrics[x]['test_r2'])
-            save_model(models[best_model_name], 'models/best_model.pkl')
-            
-            st.success(f"✅ Models trained! Best model: {best_model_name}")
-    
+    # Load and train models automatically on startup if not already in session state
+if "models" not in st.session_state:
+    with st.spinner("Initializing system, loading data and training models..."):
+        # # Load data (Your original logic)
+        df = load_housing_data()
+        X, y, feature_names = preprocess_data(df)
+        X_train, X_test, y_train, y_test, scaler = prepare_train_test_data(X, y)
+
+        # # Train models (Your original logic)
+        models = train_models(X_train, y_train)
+        metrics = evaluate_models(models, X_train, X_test, y_train, y_test)
+
+        # # Save to session state (Your original logic)
+        st.session_state.models = models
+        st.session_state.scaler = scaler
+        st.session_state.feature_names = feature_names
+        st.session_state.metrics = metrics
+
+        # # Save best model (Your original logic)
+        best_model_name = max(metrics, key=lambda x: metrics[x]['test_r2'])
+        save_model(models[best_model_name], 'models/best_model.pkl')
+        st.session_state.best_model_name = best_model_name
+
+# Display the success message automatically to the recruiter
+if "best_model_name" in st.session_state:
+    st.success(f"✅ Models trained! Best model: {st.session_state.best_model_name}")
     # Prediction interface
     if st.session_state.models is not None:
         st.subheader("Enter Property Features:")
