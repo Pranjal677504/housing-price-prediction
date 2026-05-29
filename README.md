@@ -167,17 +167,8 @@ This is a learning project. Feel free to:
 - Create additional visualizations
 - Add unit tests
 
-## 📝 License
 
-MIT License - use freely for portfolio projects
 
-## ✨ Tips for Internship Interviews
-
-1. **Understand your code** - Be able to explain every line
-2. **Discuss trade-offs** - Why Ridge over Linear? Why GB over RF?
-3. **Mention improvements** - What would you do next?
-4. **Show your work** - Include data exploration in your notebook
-5. **Document clearly** - Good comments = good impression
 
 ## 📞 Questions?
 
@@ -185,4 +176,4 @@ Review the code comments and documentation in each file for detailed explanation
 
 ---
 
-**Good luck with your internship applications! 🎉**
+
