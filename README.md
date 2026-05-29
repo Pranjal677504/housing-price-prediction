@@ -60,11 +60,9 @@ python train_model.py
 
 ### 4. Launch the Web App
 
-```bash
-streamlit run app.py
-```
+## Live Demo
 
-The app will open at `http://localhost:8501`
+[Open Streamlit App](https://housing-price-prediction-001.streamlit.app/)
 
 ## 📊 Models Included
 
@@ -83,6 +81,19 @@ The project uses a sample housing dataset with features including:
 - Pupil-teacher ratio (PTRATIO)
 - Status of the population (LSTAT)
 - And 10 more features
+
+
+## 🖼️ Application Preview
+
+### Input Dashboard
+
+![Dashboard](images/dashboard.png)
+
+### Prediction Results
+
+![Prediction Results](images/results.png)
+
+
 
 ## 🎯 Performance Metrics
 
@@ -127,46 +138,6 @@ Edit `app.py` to add:
 - Additional visualizations
 - More input features
 - Deployment configurations
-
-## 🌐 Deployment Options
-
-### Option 1: Streamlit Cloud (FREE)
-
-1. Push code to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Click "New app" and select your repository
-4. Done! Your app is live
-
-### Option 2: Heroku
-
-1. Create `Procfile`:
-```
-web: streamlit run app.py --logger.level=error
-```
-
-2. Deploy:
-```bash
-git push heroku main
-```
-
-### Option 3: AWS/GCP
-
-Use containerization (Docker) for cloud deployment.
-
-## 📚 Learning Resources
-
-- [Scikit-learn Documentation](https://scikit-learn.org/)
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [ML Best Practices](https://github.com/microsoft/ML-For-Beginners)
-
-## 🤝 Contributing
-
-This is a learning project. Feel free to:
-- Add new features
-- Improve model performance
-- Create additional visualizations
-- Add unit tests
-
 
 
 
