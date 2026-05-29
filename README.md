@@ -87,11 +87,11 @@ The project uses a sample housing dataset with features including:
 
 ### Input Dashboard
 
-![Dashboard](images/dashboard.png)
+![Input Dashboard](images/housing%20price%20prediction.png)
 
 ### Prediction Results
 
-![Prediction Results](images/results.png)
+![Prediction Results](images/prediction%20results.png)
 
 
 
