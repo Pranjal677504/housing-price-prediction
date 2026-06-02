@@ -15,7 +15,7 @@ This project builds and deploys a **housing price prediction model** that takes 
 ## 🏗️ Project Structure
 
 ```
-project2/
+housing-price-prediction/
 ├── data/                          # Data files
 ├── notebooks/                     # Jupyter notebooks for exploration
 │   └── training.ipynb
