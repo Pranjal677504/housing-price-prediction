@@ -29,36 +29,11 @@ project2/
 └── README.md
 ```
 
-## 🚀 Getting Started
 
-### 1. Prerequisites
-- Python 3.8+
-- pip or conda
 
-### 2. Installation
 
-Clone the repository and install dependencies:
 
-```bash
-cd project2
-pip install -r requirements.txt
-```
 
-### 3. Train the Model
-
-Run the training notebook:
-
-```bash
-jupyter notebook notebooks/training.ipynb
-```
-
-Or train via Python:
-
-```bash
-python train_model.py
-```
-
-### 4. Launch the Web App
 
 ## Live Demo
 
@@ -111,40 +86,5 @@ The Streamlit app includes:
 - 📈 Performance visualization
 - 📉 Feature importance analysis
 - 💾 Model information and metrics
-
-## 💡 How to Customize
-
-### Use Your Own Dataset
-
-1. Place your CSV file in the `data/` folder
-2. Update the `data_loader.py` to match your column names
-3. Modify `app.py` to use your dataset path
-
-### Add More Models
-
-In `src/model_utils.py`, add to the `train_models()` function:
-
-```python
-from sklearn.svm import SVR
-
-models['SVM'] = SVR(kernel='rbf')
-models['SVM'].fit(X_train, y_train)
-```
-
-### Customize the Web App
-
-Edit `app.py` to add:
-- Custom CSS styling
-- Additional visualizations
-- More input features
-- Deployment configurations
-
-
-
-## 📞 Questions?
-
-Review the code comments and documentation in each file for detailed explanations.
-
----
 
 
