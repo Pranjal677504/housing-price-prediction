@@ -1,90 +1,95 @@
-# Housing Price Prediction ML Project
+# Housing Price Prediction
 
-A machine learning project for predicting housing prices using regression models. Perfect for demonstrating ML skills for internship applications.
+An end-to-end machine learning project that predicts housing prices from property and neighbourhood characteristics. It covers data exploration, training and comparing four regression models, and serving predictions through an interactive Streamlit app.
 
-## 📋 Project Overview
-
-This project builds and deploys a **housing price prediction model** that takes property characteristics as input and predicts their market value. It showcases:
-
-- ✅ Data exploration and preprocessing
-- ✅ Multiple regression model training
-- ✅ Model evaluation and comparison
-- ✅ Interactive Streamlit web application
-- ✅ Production-ready code structure
-
-## 🏗️ Project Structure
-
-```
-housing-price-prediction/
-├── data/                          # Data files
-├── notebooks/                     # Jupyter notebooks for exploration
-│   └── training.ipynb
-├── src/                          # Python modules
-│   ├── data_loader.py            # Data loading utilities
-│   └── model_utils.py            # Model training utilities
-├── models/                       # Saved trained models
-├── app.py                        # Streamlit application
-├── requirements.txt              # Project dependencies
-├── .gitignore
-└── README.md
-```
-
-
-
-
-
-
-
-## Live Demo
-
-[Open Streamlit App](https://housing-price-prediction-001.streamlit.app/)
-
-## 📊 Models Included
-
-The project trains and compares 4 regression models:
-
-1. **Linear Regression** - Baseline model
-2. **Ridge Regression** - L2 regularization
-3. **Random Forest** - Ensemble method
-4. **Gradient Boosting** - Advanced ensemble
-
-## 📈 Dataset
-
-The project uses a sample housing dataset with features including:
-- Crime rate (CRIM)
-- Average rooms per dwelling (RM)
-- Pupil-teacher ratio (PTRATIO)
-- Status of the population (LSTAT)
-- And 10 more features
-
-
-## 🖼️ Application Preview
-
-### Input Dashboard
+**[Live Demo](https://housing-price-prediction-001.streamlit.app/)**
 
 ![Input Dashboard](images/housing%20price%20prediction.png)
 
-### Prediction Results
+## Highlights
+
+- Exploratory data analysis and preprocessing in a Jupyter notebook
+- Four regression models trained and compared on the same train/test split
+- Evaluation with R², RMSE and MAE
+- Streamlit app for live predictions, model comparison and feature importance
+- Modular code structure: data loading and model utilities live in `src/`, separate from the app and notebook
+
+## Models
+
+| Model | Type | Role |
+|---|---|---|
+| Linear Regression | Linear | Baseline |
+| Ridge Regression | Linear, L2 regularization | Reduces overfitting versus the baseline |
+| Random Forest | Ensemble (bagging) | Captures non-linear relationships |
+| Gradient Boosting | Ensemble (boosting) | Typically the strongest of the four on tabular data |
+
+## Results
+
+| Model | R² | RMSE | MAE |
+|---|---|---|---|
+| Linear Regression | – | – | – |
+| Ridge Regression | – | – | – |
+| Random Forest | – | – | – |
+| Gradient Boosting | – | – | – |
+
+- **R²**: share of variance in price explained by the model
+- **RMSE**: root mean squared error, which penalizes large misses more heavily
+- **MAE**: mean absolute error, the average size of a miss in the target's units
+
+## Dataset
+
+The project uses a sample housing dataset. Example features include:
+
+- `CRIM`: per-capita crime rate
+- `RM`: average number of rooms per dwelling
+- `PTRATIO`: pupil-teacher ratio
+- `LSTAT`: percentage of lower-status population
+- 10 additional features
+
+## Web Application
+
+The Streamlit app lets you:
+
+- Select a model and compare it against the others
+- Enter property features and get an instant price prediction
+- View performance metrics and visualizations
+- Explore feature importance
 
 ![Prediction Results](images/prediction%20results.png)
 
+## Project Structure
 
+```
+housing-price-prediction/
+├── data/                  # Dataset files
+├── images/                # Screenshots used in this README
+├── models/                # Saved trained models
+├── notebooks/
+│   └── training.ipynb     # EDA, training and evaluation
+├── src/
+│   ├── data_loader.py     # Data loading utilities
+│   └── model_utils.py     # Model training utilities
+├── app.py                 # Streamlit application
+├── requirements.txt       # Dependencies
+└── README.md
+```
 
-## 🎯 Performance Metrics
+## Getting Started
 
-Models are evaluated using:
-- **R² Score** - Coefficient of determination
-- **RMSE** - Root Mean Squared Error
-- **MAE** - Mean Absolute Error
+```bash
+# Clone the repository
+git clone https://github.com/Pranjal677504/housing-price-prediction.git
+cd housing-price-prediction
 
-## 🖥️ Web Application Features
+# Install dependencies
+pip install -r requirements.txt
 
-The Streamlit app includes:
+# Launch the app
+streamlit run app.py
+```
 
-- 📊 Model selection and comparison
-- 🔍 Feature input interface for predictions
-- 📈 Performance visualization
-- 📉 Feature importance analysis
-- 💾 Model information and metrics
+To retrain the models, open `notebooks/training.ipynb` and run all cells.
 
+## Tech Stack
 
+Python, scikit-learn, pandas, NumPy, Streamlit
